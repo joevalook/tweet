@@ -19,12 +19,15 @@
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
   </head>
 
@@ -37,19 +40,57 @@
           <i class="fa-solid fa-angles-down" style="color:red"></i>
         </div>
       </nav>
-      <header>
-        <div style = "margin-top:70px;">
-            <img src="/images/profile-hex.png"> 
-        </div>
-        <br>
-        <div>
-            <span class="name"><span style="font-weight:600; margin-right:0px;">Amy </span> Mansell</span>
+      <header class="header">
+        <div class="column">
+          <div class="profilePic">
+              <img class="cropped" src="/images/girl.png"> 
+          </div>
+          <div>
+              <span class="name"><span style="font-weight:600; margin-right:0px;">Vera </span> Dupuy</span>
+          </div>
         </div>
     </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets/" method="POST">
+          <textarea name="text" id="tweet-text" class="cthru" placeholder="What are you humming about?"></textarea>
+          <div class="oppositeSide">
+            <button type="submit" class="tweetButton">Tweet</button>
+            <output id = "counter" name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+      <article class="tweets" id="boxShadow">
+        <header class="oppositeSide ">
+          <div class="picName">
+            <div class="imageBox" >
+              <img src="./images/6107a65374df440004814d10.png" alt="Random Man Face">
+            </div>
+            <div >
+              <p style = "margin-left: 10px;">Isaac Newton</p>
+            </div>
+          </div>
+          <div class="handle">
+            <p>@sirIsaac</p>
+          </div>
+
+        </header>
+        <p class="tweetContainer">
+          Hi, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <footer class = "oppositeSide small">
+          <span> 10 days ago</span>
+          <div class = "horizontal">
+            <i class="fa-solid fa-flag icon1"></i>
+            <i class="fa-solid fa-retweet icon2"></i>
+            <i class="fa-solid fa-heart icon3"></i>
+          </div>
+        </footer>
+      </article>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Hi, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
       <h2>Random texts!</h2>
       <p>

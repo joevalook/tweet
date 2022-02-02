@@ -1,0 +1,47 @@
+.tweetContainer {
+  padding-bottom: 10px;
+  border-bottom:3px solid rgb(48, 36, 36);
+  margin-bottom: 10px;
+}
+
+.tweets{
+  border: 3px solid rgb(48, 36, 36);
+  margin-top: 50px;
+  text-align: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.tweets:hover{
+  box-shadow: 10px 5px 5px lightgray;
+}
+.icon1:hover{
+  color: orange;
+}
+.icon2:hover{
+  color: greenyellow;
+}
+.icon3:hover{
+  color: red;
+}
+.picName{
+  display:flex;
+  flex-direction: row;
+  padding-top: 20px;
+}
+.imageBox{
+    height:60px;
+    width:60px
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.horizontal{
+  display:flex;
+  column-gap: 15px;
+  font-size: 15px;
+}
+.small{
+  font-size: 20px;
+  padding-bottom: 15px;
+}

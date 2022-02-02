@@ -1,0 +1,32 @@
+.cthru
+{
+    background: transparent;
+    width: 100%;
+    border-top:black;
+    border-left:black;
+    border-right:black;
+    margin-bottom: 20px;
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+.oppositeSide {
+  display:flex;
+  justify-content: space-between;
+  font-weight:600
+}
+
+.tweetButton{
+  font-family: bungee;
+  color:white;
+  background-color: #4056A1;
+}
+
+.orangeFont {
+  color: orange;
+}
+.redFont {
+  color: red;
+}
