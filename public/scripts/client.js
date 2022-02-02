@@ -35,21 +35,26 @@ const createTweetElement = (tweetData) => {
         </footer>
       </article>
   `
-  $('main').append(layout);
+  return layout
+}
+const appendTweetElement = (tweetData) => {
+  $('#tweetBox').append(createTweetElement(tweetData));
+}
+
+const prependTweetElement = (tweetData) => {
+  $('#tweetBox').prepend(createTweetElement(tweetData));
 }
 
 const renderTweets = function(tweets) {
   for (let tweet of tweets) {
-    createTweetElement(tweet)
+    appendTweetElement(tweet)
   }
 }
-
-
 
 $(function() {
   const loadRecentTweet = function(url) {
     $.get(url).then((data) => {
-      createTweetElement(data.slice(-1)[0]);
+      prependTweetElement(data.slice(-1)[0]);
   })
   }
   const loadTweets = function(url) {
