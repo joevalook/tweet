@@ -3,6 +3,11 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+function htmlEncode(str){
+  return String(str).replace(/[^\w. ]/gi, function(c){
+     return '&#'+c.charCodeAt(0)+';';
+  });
+}
 
 const createTweetElement = (tweetData) => {
   const layout = `
@@ -23,7 +28,7 @@ const createTweetElement = (tweetData) => {
 
         </header>
         <p class="tweetContainer">
-        ${tweetData.content.text}
+        ${htmlEncode(tweetData.content.text)}
         </p>
         <footer class = "oppositeSide small">
           <span> ${timeago.format(Number(tweetData.created_at))}</span>
@@ -46,8 +51,8 @@ const prependTweetElement = (tweetData) => {
 }
 
 const renderTweets = function(tweets) {
-  for (let tweet of tweets) {
-    appendTweetElement(tweet)
+  for (let i = tweets.length-1; i >=0; i--) {
+    appendTweetElement(tweets[i])
   }
 }
 
@@ -77,6 +82,7 @@ $(function() {
       $.post("/tweets/", $(this).serialize(),() => {
         loadRecentTweet("/tweets/")
       });
+      $form[0].reset();
     }
   })
 });
