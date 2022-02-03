@@ -3,6 +3,7 @@
   body {
     display: flex;
     justify-content: space-between;
+    overflow-y:hidden;
   }
   .container {
     margin-right: 40px;
@@ -11,7 +12,7 @@
     width: 50%;
     background-color: #f4f1ec;
     text-align: center;
-    height:950px;
+    height:94vh;
   }
   #tweetBox{
     margin-top:20px;

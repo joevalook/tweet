@@ -100,13 +100,13 @@ $(function() {
   $('#writeTweet, #angles').on('click', function() {
     if ($('#newTweet').is(":hidden")){  
       $("#newTweet").slideDown("slow")
-      $('.container').css("height", "750px")
+      $('.container').css("height", "74vh")
       $('#angles').removeClass('fa-angles-down')
       $('#angles').addClass('fa-angles-up')
     }
     else {
       $("#newTweet").slideUp("slow")
-      $('.container').css("height", "950px")
+      $('.container').css("height", "94vh")
       $('#angles').removeClass('fa-angles-up')
       $('#angles').addClass('fa-angles-down')
     }
