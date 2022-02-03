@@ -28,3 +28,21 @@ nav {
   flex-direction: column;
   align-items: center;
 }
+
+#angles {
+  animation: updown 1s ease infinite;
+}
+
+@keyframes updown {
+  0% {
+    transform: translateY(0%);
+  }
+
+  50% {
+    transform: translateY(40%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}

@@ -11,34 +11,33 @@ function htmlEncode(str){
 }
 const createTweetElement = (tweetData) => {
   const layout = `
-  <section>
-      <article class="tweets" id="boxShadow">
-        <header class="oppositeSide ">
-          <div class="picName">
-            <div class="imageBox" >
-              <img src="${tweetData.user.avatars}" alt="Random Man Face">
-            </div>
-            <div >
-              <p style = "margin-left: 10px;">${tweetData.user.name}</p>
-            </div>
+    <article class="tweets" id="boxShadow">
+      <header class="oppositeSide ">
+        <div class="picName">
+          <div class="imageBox" >
+            <img src="${tweetData.user.avatars}" alt="Random Man Face">
           </div>
-          <div class="handle">
-            <p>${tweetData.user.handle}</p>
+          <div >
+            <p style = "margin-left: 10px;">${tweetData.user.name}</p>
           </div>
+        </div>
+        <div class="handle">
+          <p>${tweetData.user.handle}</p>
+        </div>
 
-        </header>
-        <p class="tweetContainer">
-        ${(htmlEncode(tweetData.content.text))}
-        </p>
-        <footer class = "oppositeSide small">
-          <span> ${timeago.format(Number(tweetData.created_at))}</span>
-          <div class = "horizontal">
-            <i class="fa-solid fa-flag icon1"></i>
-            <i class="fa-solid fa-retweet icon2"></i>
-            <i class="fa-solid fa-heart icon3"></i>
-          </div>
-        </footer>
-      </article>
+      </header>
+      <p class="tweetContainer">
+      ${(htmlEncode(tweetData.content.text))}
+      </p>
+      <footer class = "oppositeSide small">
+        <span> ${timeago.format(Number(tweetData.created_at))}</span>
+        <div class = "horizontal">
+          <i class="fa-solid fa-flag icon1"></i>
+          <i class="fa-solid fa-retweet icon2"></i>
+          <i class="fa-solid fa-heart icon3"></i>
+        </div>
+      </footer>
+    </article>
   `
   return layout
 }
@@ -93,8 +92,23 @@ $(function() {
     else {
       $.post("/tweets/", $(this).serialize(),() => {
         loadRecentTweet("/tweets/")
+        $('#tweetBox').animate({ scrollTop: 0 }, 'slow');
       });
       $form[0].reset();
+    }
+  })
+  $('#writeTweet, #angles').on('click', function() {
+    if ($('#newTweet').is(":hidden")){  
+      $("#newTweet").slideDown("slow")
+      $('.container').css("height", "750px")
+      $('#angles').removeClass('fa-angles-down')
+      $('#angles').addClass('fa-angles-up')
+    }
+    else {
+      $("#newTweet").slideUp("slow")
+      $('.container').css("height", "950px")
+      $('#angles').removeClass('fa-angles-up')
+      $('#angles').addClass('fa-angles-down')
     }
   })
 });

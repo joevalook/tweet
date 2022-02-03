@@ -41,8 +41,8 @@
     <nav>
       <span class="tweeter">tweeter</span>
       <div class="smallProFont">
-        <span ><span style="font-weight:600; margin-right:0px;">Write </span>a New Tweet</span>
-        <i class="fa-solid fa-angles-down" style="color:red"></i>
+        <span id="writeTweet" ><span style="font-weight:600; margin-right:0px;">Write </span>a New Tweet</span>
+        <i id="angles" class="fa-solid fa-angles-down" style="color:red"></i>
       </div>
     </nav>
     <header class="header" id="header">
@@ -58,7 +58,7 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <section class="new-tweet">
+      <section hidden class="new-tweet" id="newTweet">
         <h2>Compose Tweet</h2>
         <form id="tweetForm" action="/tweets/" method="POST" >
           <textarea name="text" id="tweet-text" class="cthru"  placeholder="What are you humming about?"></textarea>
@@ -70,33 +70,6 @@
         </form>
       </section>
       <section id="tweetBox"></section>
-        <!-- <article class="tweets" id="boxShadow">
-          <header class="oppositeSide ">
-            <div class="picName">
-              <div class="imageBox" >
-                <img src="https://i.imgur.com/3GvwNBf.png" alt="Random Woman Face">
-              </div>
-              <div >
-                <p style = "margin-left: 10px;">Emma Matthew</p>
-              </div>
-            </div>
-            <div class="handle">
-              <p>@emat</p>
-            </div>
-
-          </header>
-          <p class="tweetContainer">
-            Hi, Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          </p>
-          <footer class = "oppositeSide small">
-            <span> 10 days ago</span>
-            <div class = "horizontal">
-              <i class="fa-solid fa-flag icon1"></i>
-              <i class="fa-solid fa-retweet icon2"></i>
-              <i class="fa-solid fa-heart icon3"></i>
-            </div>
-          </footer>
-        </article> -->
       </section>
     </main>
   </body>
