@@ -74,7 +74,7 @@ $(function() {
   $textbox.on('input', function() {
     if (document.getElementById('tweetForm')[0].value.length <= 140 && document.getElementById('tweetForm')[0].value.length !== 0 ) {
       $(document.getElementById('tweet-text')).removeClass("error");
-      $("#error").slideUp("slow")
+      $("#error").slideUp("fast")
     }
   })
   $form.on('submit', function (e) {
@@ -83,12 +83,12 @@ $(function() {
     if(this[0].value.length > 140) {
       $(document.getElementById('tweet-text')).addClass("error");
       document.getElementById('error').innerHTML = "* Error: You can not have over 140 characters!";
-      $("#error").slideDown("slow")
+      $("#error").slideDown("fast")
     }
     else if (this[0].value.length === 0){
       $(document.getElementById('tweet-text')).addClass("error");
       document.getElementById('error').innerHTML = "* Error: You can not post nothing!";
-      $("#error").slideDown("slow")
+      $("#error").slideDown("fast")
     }
     else {
       $.post("/tweets/", $(this).serialize(),() => {

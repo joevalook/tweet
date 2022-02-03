@@ -24,7 +24,9 @@
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
     <link rel="stylesheet" href="/styles/error.css" type="text/css" />
-
+    <link rel="stylesheet" href="/styles/responseDesign.css" type="text/css" />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -34,25 +36,26 @@
 
   </head>
 
-  <body>
+  <body id="body">
     <!-- Top nav bar (fixed) -->
-      <nav>
-        <span class="tweeter">tweeter</span>
-        <div class="smallProFont">
-          <span ><span style="font-weight:600; margin-right:0px;">Write </span>a New Tweet</span>
-          <i class="fa-solid fa-angles-down" style="color:red"></i>
+    <nav>
+      <span class="tweeter">tweeter</span>
+      <div class="smallProFont">
+        <span ><span style="font-weight:600; margin-right:0px;">Write </span>a New Tweet</span>
+        <i class="fa-solid fa-angles-down" style="color:red"></i>
+      </div>
+    </nav>
+    <header class="header" id="header">
+      <div class="column">
+        <div class="profilePic">
+            <img class="cropped" src="/images/girl.png"> 
         </div>
-      </nav>
-      <header class="header">
-        <div class="column">
-          <div class="profilePic">
-              <img class="cropped" src="/images/girl.png"> 
-          </div>
-          <div>
-              <span class="name"><span style="font-weight:600; margin-right:0px;">Vera </span> Dupuy</span>
-          </div>
+        <div>
+            <span class="name"><span style="font-weight:600; margin-right:0px;">Vera </span> Dupuy</span>
         </div>
+      </div>
     </header>
+
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
@@ -67,7 +70,7 @@
         </form>
       </section>
       <section id="tweetBox"></section>
-        <article class="tweets" id="boxShadow">
+        <!-- <article class="tweets" id="boxShadow">
           <header class="oppositeSide ">
             <div class="picName">
               <div class="imageBox" >
@@ -93,7 +96,7 @@
               <i class="fa-solid fa-heart icon3"></i>
             </div>
           </footer>
-        </article>
+        </article> -->
       </section>
     </main>
   </body>
