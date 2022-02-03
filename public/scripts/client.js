@@ -3,6 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+
 function htmlEncode(str){
   return String(str).replace(/[^\w. ]/gi, function(c){
      return '&#'+c.charCodeAt(0)+';';
@@ -73,7 +74,7 @@ $(function() {
   $textbox.on('input', function() {
     if (document.getElementById('tweetForm')[0].value.length <= 140 && document.getElementById('tweetForm')[0].value.length !== 0 ) {
       $(document.getElementById('tweet-text')).removeClass("error");
-      document.getElementById('error').innerHTML = null;
+      $("#error").slideUp("slow")
     }
   })
   $form.on('submit', function (e) {
@@ -82,10 +83,12 @@ $(function() {
     if(this[0].value.length > 140) {
       $(document.getElementById('tweet-text')).addClass("error");
       document.getElementById('error').innerHTML = "* Error: You can not have over 140 characters!";
+      $("#error").slideDown("slow")
     }
     else if (this[0].value.length === 0){
       $(document.getElementById('tweet-text')).addClass("error");
       document.getElementById('error').innerHTML = "* Error: You can not post nothing!";
+      $("#error").slideDown("slow")
     }
     else {
       $.post("/tweets/", $(this).serialize(),() => {
