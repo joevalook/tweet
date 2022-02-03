@@ -71,12 +71,15 @@ $(function() {
   const $form = $('#tweetForm');
   const $textbox = $('#tweet-text')
   $textbox.on('input', function() {
-    $(document.getElementById('tweet-text')).removeClass("error");
-    document.getElementById('error').innerHTML = null;
+    if (document.getElementById('tweetForm')[0].value.length <= 140 && document.getElementById('tweetForm')[0].value.length !== 0 ) {
+      $(document.getElementById('tweet-text')).removeClass("error");
+      document.getElementById('error').innerHTML = null;
+    }
   })
   $form.on('submit', function (e) {
     e.preventDefault();
-    if(counter < 0) {
+    console.log();
+    if(this[0].value.length > 140) {
       $(document.getElementById('tweet-text')).addClass("error");
       document.getElementById('error').innerHTML = "* Error: You can not have over 140 characters!";
     }
