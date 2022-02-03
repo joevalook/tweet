@@ -5,7 +5,7 @@
     border-top:black;
     border-left:black;
     border-right:black;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 ::placeholder {
@@ -15,7 +15,8 @@
 .oppositeSide {
   display:flex;
   justify-content: space-between;
-  font-weight:600
+  font-weight:600;
+  margin-top:25px;
 }
 
 .tweetButton{

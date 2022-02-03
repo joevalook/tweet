@@ -1,0 +1,8 @@
+.error{
+  background-color: rgba(255, 0, 0, 0.1) !important;
+}
+.errormsg{
+  font-size: 20px;
+  color:red;
+  float:left;
+}

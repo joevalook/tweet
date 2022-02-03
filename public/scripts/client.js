@@ -8,7 +8,6 @@ function htmlEncode(str){
      return '&#'+c.charCodeAt(0)+';';
   });
 }
-
 const createTweetElement = (tweetData) => {
   const layout = `
   <section>
@@ -28,7 +27,7 @@ const createTweetElement = (tweetData) => {
 
         </header>
         <p class="tweetContainer">
-        ${htmlEncode(tweetData.content.text)}
+        ${(htmlEncode(tweetData.content.text))}
         </p>
         <footer class = "oppositeSide small">
           <span> ${timeago.format(Number(tweetData.created_at))}</span>
@@ -70,13 +69,20 @@ $(function() {
   loadTweets("/tweets/");
 
   const $form = $('#tweetForm');
+  const $textbox = $('#tweet-text')
+  $textbox.on('input', function() {
+    $(document.getElementById('tweet-text')).removeClass("error");
+    document.getElementById('error').innerHTML = null;
+  })
   $form.on('submit', function (e) {
     e.preventDefault();
     if(counter < 0) {
-      alert("You have exceeded the amount of characters allowed!")
+      $(document.getElementById('tweet-text')).addClass("error");
+      document.getElementById('error').innerHTML = "* Error: You can not have over 140 characters!";
     }
-    else if (counter === 140){
-      alert("You must type something in order to post!")
+    else if (this[0].value.length === 0){
+      $(document.getElementById('tweet-text')).addClass("error");
+      document.getElementById('error').innerHTML = "* Error: You can not post nothing!";
     }
     else {
       $.post("/tweets/", $(this).serialize(),() => {
@@ -86,15 +92,3 @@ $(function() {
     }
   })
 });
-
-// const $form = $('#tweetForm');
-// $form.on('submit', function (e) {
-//   e.preventDefault();
-//   console.log(this)
-//   console.log(e.value)
-//   $.post("/tweets/", {text: e.value},(data) => {
-//     console.log(data);
-//     //$('main').append(tweets);
-//   });
-// })
-// });
