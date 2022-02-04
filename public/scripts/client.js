@@ -101,6 +101,7 @@ $(function() {
   $('#writeTweet, #angles').on('click', function() {
     if ($('#newTweet').is(":hidden")){  
       $("#newTweet").slideDown("slow")
+      $("tweet-text").focus();
       $('.container').css("height", "74vh")
       $('#angles').removeClass('fa-angles-down')
       $('#angles').addClass('fa-angles-up')
