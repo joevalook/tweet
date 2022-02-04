@@ -92,6 +92,7 @@ $(function() {
     else {
       $.post("/tweets/", $(this).serialize(),() => {
         loadRecentTweet("/tweets/")
+        document.getElementById('counter').innerHTML = '140';
         $('#tweetBox').animate({ scrollTop: 0 }, 'slow');
       });
       $form[0].reset();
